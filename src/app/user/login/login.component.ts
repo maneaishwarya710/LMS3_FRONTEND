@@ -3,6 +3,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,9 @@ import { LoginService } from '../login.service';
 })
 export class LoginComponent {
   LoginForm!: FormGroup;
-  label='Login';
+  label = 'Login';
 
-  constructor(private fb: FormBuilder, private http:HttpClientModule, private loginService:LoginService) {}
+  constructor(private fb: FormBuilder, private http: HttpClientModule, private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
     this.LoginForm = this.fb.group({
@@ -23,15 +24,19 @@ export class LoginComponent {
     });
   }
 
-  userInfo:any;
+  userInfo: any;
 
   onSubmit(): void {
-    this.loginService.getLoginMessage(this.LoginForm.value).subscribe((res:any)=>{
+    this.loginService.getLoginMessage(this.LoginForm.value).subscribe((res: any) => {
       console.log(res);
-      
-      localStorage.setItem("token",res.token);
+      this.loginService.setToken(res.token);
+      this.loginService.setUser(res.user);
+      console.log("User got after login (LocalStorage)", res.user);
       console.log("Login Successful...");
       alert("Login Successful!");
-    })
+      this.LoginForm.reset();
+      this.router.navigate(['/homepage']);
+    });
   }
+
 }

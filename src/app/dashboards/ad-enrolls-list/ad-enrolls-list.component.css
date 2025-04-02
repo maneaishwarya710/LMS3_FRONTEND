@@ -1,0 +1,32 @@
+h3 {
+    color: #001F3F; /* Navy */
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: auto;
+    background-color: #F0F0F0; /* Light Gray */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  li {
+    background-color: #FFFFFF; /* White */
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #001F3F; /* Navy */
+    border-radius: 4px;
+    color: #111111; /* Black */
+  }
+  
+  li:last-child {
+    margin-bottom: 0;
+  }
+  

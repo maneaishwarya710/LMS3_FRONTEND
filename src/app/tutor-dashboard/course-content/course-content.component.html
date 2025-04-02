@@ -1,0 +1,16 @@
+<h3>Create Course Content</h3>
+<form [formGroup]="courseContentForm" (ngSubmit)="createCourseContent()">
+  <div>
+    <label for="contentType">Content Type:</label>
+    <input id="contentType" formControlName="contentType" type="text" />
+  </div>
+  <div>
+    <label for="content">Content:</label>
+    <input id="content" formControlName="content" type="text" />
+  </div>
+  <div>
+    <label for="courseId">Course ID:</label>
+    <input id="courseId" formControlName="courseId" type="number" />
+  </div>
+  <button type="submit" [disabled]="courseContentForm.invalid">Create Course Content</button>
+</form>

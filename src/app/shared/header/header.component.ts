@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { LoginService } from '../../user/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,5 +9,21 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  user: any = null;
+  userType: string | null = null;
+  constructor(private loginService:LoginService, private router:Router){}
+  ngOnInit(): void {
+    this.loginService.user$.subscribe(user => {
+      this.user = user;
+    });
+    this.loginService.userType$.subscribe(userType => {
+      this.userType = userType;
+    });
+  }
+
+  logout(): void {
+    this.loginService.logout();
+    this.router.navigate(['/user/login']);
+  }
 
 }

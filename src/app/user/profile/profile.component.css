@@ -1,0 +1,32 @@
+.user-profile-container {
+    background-color: #F0F0F0; /* Light Gray */
+    color: #111111; /* Black */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .user-profile-container h2 {
+    color: #001F3F; /* Navy */
+    border-bottom: 2px solid #FF4136; /* Red */
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .user-profile-container p {
+    font-size: 1rem;
+    margin: 10px 0;
+  }
+  
+  .user-profile-container p strong {
+    color: #001F3F; /* Navy */
+  }
+  
+  .loading-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #001F3F; /* Navy */
+  }
+  

@@ -1,0 +1,6 @@
+<h3>Enrollment List</h3>
+<ul>
+  <li *ngFor="let enrollment of enrollments">
+    {{ enrollment.enrollmentId }} - {{ enrollment.enrollmentDate }} - {{ enrollment.completionStatus }} - {{ enrollment.courseId }} - {{ enrollment.userId }}
+  </li>
+</ul>

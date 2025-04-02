@@ -1,0 +1,23 @@
+<h3>Enroll</h3>
+<form [formGroup]="enrollForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="enrollmentDate">Enrollment Date:</label>
+    <input id="enrollmentDate" formControlName="enrollmentDate" type="date" />
+  </div>
+  <div>
+    <label for="completionStatus">Completion Status:</label>
+    <select id="completionStatus" formControlName="completionStatus">
+      <option value="" disabled selected>Select Status</option>
+      <option value="Starting">Starting</option>
+    </select>
+  </div>
+  <div>
+    <label for="courseId">Course ID:</label>
+    <input id="courseId" formControlName="courseId" type="text" />
+  </div>
+  <div>
+    <label for="userId">User ID:</label>
+    <input id="userId" formControlName="userId" type="text" />
+  </div>
+  <button type="submit" [disabled]="enrollForm.invalid">Enroll</button>
+</form>

@@ -1,0 +1,72 @@
+/* Styles for the Register Form */
+h3 {
+  color: #001F3F; /* Navy */
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px; /* Reduced margin */
+}
+
+form {
+  background-color: #F0F0F0; /* Light Gray */
+  padding: 15px; /* Reduced padding */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  color: #111111; /* Black */
+  font-weight: bold;
+  margin-bottom: 5px; /* Reduced margin */
+}
+
+input, select {
+  width: 95%;
+  padding: 8px; /* Reduced padding */
+  border: 1px solid #001F3F; /* Navy */
+  border-radius: 4px;
+  margin-bottom: 15px; /* Reduced margin */
+  font-size: 16px;
+}
+
+button {
+  background-color: #001F3F; /* Navy */
+  color: #FFFFFF; /* White */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:disabled {
+  background-color: #CCCCCC; /* Disabled button color */
+  cursor: not-allowed;
+}
+
+button:hover:not(:disabled) {
+  background-color: #FF4136; /* Red */
+}
+
+p {
+  text-align: center;
+  color: #111111; /* Black */
+  margin-top: 10px; /* Reduced margin */
+}
+
+a {
+  color: #001F3F; /* Navy */
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  margin-top: 5px; /* Reduced margin */
+}
+
+a:hover {
+  color: #FF4136; /* Red */
+}

@@ -1,0 +1,20 @@
+<h3>Create Quiz</h3>
+<form [formGroup]="quizForm" (ngSubmit)="createQuiz()">
+  <div>
+    <label for="quizName">Quiz Name:</label>
+    <input id="quizName" formControlName="quizName" type="text" />
+  </div>
+  <div>
+    <label for="description">Description:</label>
+    <input id="description" formControlName="description" type="text" />
+  </div>
+  <div>
+    <label for="totalmarks">Total Marks:</label>
+    <input id="totalmarks" formControlName="totalmarks" type="number" />
+  </div>
+  <div>
+    <label for="courseId">Course ID:</label>
+    <input id="courseId" formControlName="courseId" type="number" />
+  </div>
+  <button type="submit" [disabled]="quizForm.invalid">Create Quiz</button>
+</form>

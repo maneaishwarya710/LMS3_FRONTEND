@@ -5,11 +5,15 @@
         <p class="tagline">Rise Above, Learn Beyond</p>
       </div>
       <nav class="nav">
-        <a routerLink="/user/login" class="nav-link">Login</a>
-        <a href="#" class="nav-link">Home</a>
-        <a href="#" class="nav-link">Courses</a>
-        <a href="#" class="nav-link">About</a>
-        <a href="#" class="nav-link">Contact</a>
+        <a href="/user/login" class="nav-link">Login</a>
+        <a href="/dashboards/admin-dashboard" class="nav-link">Admin Dashboard</a>
+        <a href="/tutor-dashboard/tutors-dashboard" class="nav-link">Tutor Dashboard</a>
+        <a href="/student-dashboard/students-dashboard" class="nav-link">Student Dashboard</a>
+        <!-- <a href="#" class="nav-link">Contact</a> -->
+        <span *ngIf="user" class="nav-link">
+          <i class="fas fa-user"></i> Welcome, {{ user.username }}
+          <button (click)="logout()" class="logout-button">Logout</button>
+        </span>
       </nav>
     </div>
-  </header>
+</header>

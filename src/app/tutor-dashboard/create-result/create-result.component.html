@@ -1,0 +1,20 @@
+<h3>Create Result</h3>
+<form [formGroup]="resultForm" (ngSubmit)="createResult()">
+  <div>
+    <label for="score">Score:</label>
+    <input id="score" formControlName="score" type="number" />
+  </div>
+  <div>
+    <label for="courseId">Course ID:</label>
+    <input id="courseId" formControlName="courseId" type="number" />
+  </div>
+  <div>
+    <label for="quizId">Quiz ID:</label>
+    <input id="quizId" formControlName="quizId" type="number" />
+  </div>
+  <div>
+    <label for="userId">User ID:</label>
+    <input id="userId" formControlName="userId" type="number" />
+  </div>
+  <button type="submit" [disabled]="resultForm.invalid">Create Result</button>
+</form>

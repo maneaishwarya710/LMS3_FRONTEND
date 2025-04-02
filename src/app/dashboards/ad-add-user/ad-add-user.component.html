@@ -1,0 +1,25 @@
+<h3>Add User</h3>
+<form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="username">Username:</label>
+    <input id="username" formControlName="username" type="text" />
+  </div>
+
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email" type="email" />
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input id="password" formControlName="password" type="password" />
+  </div>
+
+  <div>
+    <label for="userType">User Type:</label>
+    <input id="userType" formControlName="userType" type="text" />
+  </div>
+
+  <button type="submit" [disabled]="addUserForm.invalid">Add User</button>
+</form>
+

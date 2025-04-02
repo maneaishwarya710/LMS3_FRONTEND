@@ -4,4 +4,9 @@
 /* html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
 
-
+/* styles.css or any relevant CSS file */
+.error-snackbar {
+    background-color: #ff0000; /* Red color */
+    color: #ffffff; /* White text color */
+  }
+  

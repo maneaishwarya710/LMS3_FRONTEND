@@ -1,0 +1,66 @@
+/* General Styles */
+body {
+    background-color: #F0F0F0; /* Light Gray */
+    color: #111111; /* Black */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Form Container */
+  form {
+    background-color: #FFFFFF; /* White */
+    border: 2px solid #001F3F; /* Navy */
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Form Heading */
+  h3 {
+    color: #001F3F; /* Navy */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Form Labels */
+  label {
+    display: block;
+    margin-bottom: 8px;
+    color: #001F3F; /* Navy */
+    font-weight: bold;
+  }
+  
+  /* Form Inputs */
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #001F3F; /* Navy */
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Submit Button */
+  button[type="submit"] {
+    background-color: #001F3F; /* Navy */
+    color: #FFFFFF; /* White */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #FF4136; /* Red */
+  }
+  
+  /* Disabled Button */
+  button[disabled] {
+    background-color: #CCCCCC; /* Gray */
+    cursor: not-allowed;
+  }
+  

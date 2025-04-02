@@ -12,7 +12,7 @@ import { HttpErrorInterceptor } from './interceptors/http-error.interceptor';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { SharedModule } from './shared/shared.module';
 import { HomepageComponent } from './homepage/homepage.component';
-
+import {CookieService} from 'ngx-cookie-service'
 
 @NgModule({
   declarations: [
@@ -27,12 +27,13 @@ import { HomepageComponent } from './homepage/homepage.component';
     ReactiveFormsModule,
     UserModule,
     MatSnackBarModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true,},
     {provide:ErrorEvent,useClass:GlobalErrorHandler},
     {provide:HTTP_INTERCEPTORS,useClass:HttpErrorInterceptor,multi:true,},
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
