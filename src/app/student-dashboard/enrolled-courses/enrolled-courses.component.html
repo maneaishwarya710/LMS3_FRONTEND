@@ -1,7 +1,13 @@
-<h3>Enrolled Courses</h3>
-<ul>
-  <li *ngFor="let course of enrolledCourses">
-    {{ course.courseName }} - {{ course.description }} - {{ course.price }}
-  </li>
-</ul>
+<h3>Enrollments</h3>
+<div>
+  <button (click)="getEnrolledCourses()">My Courses</button>
+</div>
+<div *ngIf="enrolledCourses.length > 0">
+  <h4>Enrolled Courses:</h4>
+  <div *ngFor="let course of enrolledCourses" class="course-block">
+    <div class="course-name">{{ course.courseName }}</div>
+    <div class="course-description">{{ course.description }}</div>
+    <div class="course-price">{{ course.price }}</div>
+  </div>
+</div>
 

@@ -9,32 +9,25 @@ import { LoginService } from '../../user/login.service';
   styleUrl: './enrolled-courses.component.css'
 })
 export class EnrolledCoursesComponent {
-  enrolledCourses: any[] = [];
-  user: any = null;
   userId!: number;
+  user!:any;
+  enrolledCourses: any[] = [];
 
-  constructor(private studentService: StudentService, private loginService: LoginService) {}
+  constructor(private studentService: StudentService, private loginService:LoginService) {
+    this.user=loginService.getUser();
+    this.userId=this.user.userId;
+  }
 
-  ngOnInit(): void {
-    console.log("Get enrolled method!")
-    this.loginService.user$.subscribe(user => {
-      this.user = user;
-      if (this.user) {
-        this.userId = this.user.userId;
-        console.log(`Enrolled courses for user with userId: ${this.userId}`);
-
-        this.studentService.getEnrolledCourses(this.userId).subscribe(
-          (courses) => {
-            this.enrolledCourses = courses;
-          },
-          (error) => {
-            console.error('Error fetching enrolled courses', error);
-            alert('Unable to fetch enrolled courses!');
-          }
-        );
-
+  getEnrolledCourses(): void {
+    this.studentService.getEnrolledCourses(this.userId).subscribe(
+      response => {
+        this.enrolledCourses = response.enrolledCourses;
+        console.log('Enrolled courses:', this.enrolledCourses);
+      },
+      error => {
+        console.error('Error fetching enrolled courses', error);
       }
-    });
+    );
   }
 }
 

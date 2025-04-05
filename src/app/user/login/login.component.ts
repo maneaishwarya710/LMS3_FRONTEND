@@ -31,7 +31,7 @@ export class LoginComponent {
       console.log(res);
       this.loginService.setToken(res.token);
       this.loginService.setUser(res.user);
-      console.log("User got after login (LocalStorage)", res.user);
+      console.log("User got after login (Cookies)", res.user);
       console.log("Login Successful...");
       alert("Login Successful!");
       this.LoginForm.reset();

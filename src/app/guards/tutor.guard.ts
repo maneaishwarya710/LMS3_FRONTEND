@@ -8,14 +8,14 @@ import { LoginService } from '../user/login.service';
 export class TutorGuard implements CanActivate {
   constructor(private loginService: LoginService, private router: Router) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
     const user = this.loginService.getUser();
     const roles: string[] = ['admin','tutor'];
     if (user && roles.includes(user.userType)) {
       return true;
     } else {
       alert("You don't have access to Tutor Dashboard!")
-      this.router.navigate(['/user/login']);
+      this.router.navigate(['/homepage']);
       return false;
     }
   }

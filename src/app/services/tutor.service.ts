@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class TutorService {
-  private apiUrl = 'http://localhost:3003/tutor'; 
+  private apiUrl = 'http://localhost:3004/tutor'; 
   constructor(private http: HttpClient) {}
 
   createNewCourse(courseData: any): Observable<any> {
@@ -16,6 +16,15 @@ export class TutorService {
       }
     });
   }
+
+  getCourseContentsByCourseId(courseId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/contentByCourseId/${courseId}`);
+  }
+  
+  getCoursesByCreatorId(creatorId: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/myCourses/${creatorId}`);
+  }
+
 
   createNewCourseContent(courseContentData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/ccc`, courseContentData, {

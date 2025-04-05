@@ -1,0 +1,60 @@
+/* Course Block Styling */
+.course-block {
+    border: 1px solid #001F3F; /* Navy border */
+    background-color: #F0F0F0; /* White background */
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px; /* Rounded corners */
+  }
+  
+  .course-name {
+    font-weight: bold;
+    color: #001F3F; /* Navy text */
+    margin-bottom: 5px;
+  }
+  
+  .course-description {
+    color: #111111; /* Black text */
+    margin-bottom: 5px;
+  }
+  
+  .course-price {
+    color: #FF4136; /* Red text */
+  }
+  
+  /* Button Styling */
+  button {
+    background-color: #001F3F; /* Navy background */
+    color: #FFFFFF; /* White text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #001A35; /* Darker navy on hover */
+  }
+  
+  /* Header Styling */
+  h3, h4 {
+    color: #001F3F; /* Navy text */
+  }
+  
+  h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Background Styling */
+  body {
+    background-color: #F0F0F0; /* Light gray background */
+    color: #111111; /* Black text */
+  }
+  

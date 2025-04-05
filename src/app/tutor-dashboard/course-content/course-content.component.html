@@ -8,9 +8,5 @@
     <label for="content">Content:</label>
     <input id="content" formControlName="content" type="text" />
   </div>
-  <div>
-    <label for="courseId">Course ID:</label>
-    <input id="courseId" formControlName="courseId" type="number" />
-  </div>
   <button type="submit" [disabled]="courseContentForm.invalid">Create Course Content</button>
 </form>

@@ -1,0 +1,15 @@
+<h3>Get Payments</h3>
+<div>
+  <!-- <label for="userId">User ID:</label>
+  <input id="userId" [(ngModel)]="userId" type="number" /> -->
+  <button (click)="getPayments()">Get Payments</button>
+</div>
+<div *ngIf="payments.length > 0">
+  <h4>Payments:</h4>
+  <ul>
+    <li *ngFor="let payment of payments">
+      {{ payment.paymentId }} - {{ payment.amount }} - {{ payment.date }}
+    </li>
+  </ul>
+</div>
+

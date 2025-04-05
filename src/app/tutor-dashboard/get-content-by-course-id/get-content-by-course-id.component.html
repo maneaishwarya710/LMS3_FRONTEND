@@ -1,0 +1,8 @@
+<h3>Course Contents for Course ID: {{ courseId }}</h3>
+<ul>
+  <li *ngFor="let content of courseContents">
+    <!-- <h4>Content ID: {{ content.contentId }}</h4> -->
+    <p>Type: {{ content.contentType }}</p>
+    <p>Content: {{ content.content }}</p>
+  </li>
+</ul>

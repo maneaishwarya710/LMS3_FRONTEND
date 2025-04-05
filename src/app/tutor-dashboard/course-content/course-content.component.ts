@@ -1,38 +1,50 @@
-import { Component } from '@angular/core';
-import { TutorService } from '../../services/tutor.service';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TutorService } from '../../services/tutor.service';
 
 @Component({
   selector: 'app-course-content',
-  standalone: false,
   templateUrl: './course-content.component.html',
-  styleUrl: './course-content.component.css'
+  styleUrls: ['./course-content.component.css'],
+  standalone:false,
 })
-export class CourseContentComponent {
+export class CourseContentComponent implements OnInit {
   courseContentForm!: FormGroup;
+  courseId!: number;
 
- constructor(private fb: FormBuilder, private tutorService: TutorService){}
+  constructor(
+    private fb: FormBuilder,
+    private tutorService: TutorService,
+    private route: ActivatedRoute,
+    private router:Router
+  ) {}
 
   ngOnInit(): void {
+    this.courseId = +this.route.snapshot.paramMap.get('courseId')!;
     this.courseContentForm = this.fb.group({
       contentType: ['', [Validators.required]],
-      content: ['', [Validators.required]],
-      courseId: ['', [Validators.required]]
+      content: ['', [Validators.required]]
     });
   }
 
   createCourseContent(): void {
-    this.tutorService.createNewCourseContent(this.courseContentForm.value).subscribe(
+    const formData = {
+      ...this.courseContentForm.value,
+      courseId: this.courseId
+    };
+
+    this.tutorService.createNewCourseContent(formData).subscribe(
       response => {
         console.log('Course content created successfully', response);
-        alert("Course content created successfully!");
+        alert('Course content created successfully!');
       },
       (error: any) => {
         console.error('Error creating course content', error);
       }
     );
-    
     this.courseContentForm.reset();
+    this.router.navigate(['/tutor-dashboard/get-my-created-courses'])
+    
   }
-  
 }

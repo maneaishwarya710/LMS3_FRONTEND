@@ -1,0 +1,14 @@
+<h3>My Courses</h3>
+<ul>
+  <li *ngFor="let course of courses">
+    <h3>Course ID: {{ course.courseId }}</h3>
+    <h4>{{ course.courseName }}</h4>
+    <img [src]="course.imgurl" alt="{{ course.courseName }}" />
+    <p>{{ course.description }}</p>
+    <p>Price: {{ course.price }}</p>
+    <button (click)="navigateToCourseContents(course.courseId)">View Course Content</button>
+    <button (click)="navigateToAddCourseContent(course.courseId)">Add Course Content</button>
+    <button (click)="navigateToCreateQuiz(course.courseId)">Create Quiz</button>
+    <button (click)="removeCourse(course.courseId)">Remove Course</button>
+  </li>
+</ul>

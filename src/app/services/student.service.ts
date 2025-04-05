@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class StudentService {
-  private apiUrl = 'http://localhost:3003/student';
+  private apiUrl = 'http://localhost:3004/student';
 
   constructor(private http: HttpClient) {}
 
@@ -18,23 +18,32 @@ export class StudentService {
     });
   }
 
-  // getEnrolledCourses(userId: number): Observable<any> {
-  //   return this.http.get(`${this.apiUrl}/getenrolled/${userId}`);
-  // }
   getEnrolledCourses(userId: number): Observable<any> {
     return this.http.get(`${this.apiUrl}/getenrolled/${userId}`);
   }
-  
 
+
+  
   getStudentResults(userId: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/getresult/${userId}`);
+    console.log("hi");
+    
+    return this.http.get(`${this.apiUrl}/getresult/${userId}`, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
 
   getPaymentsByUserId(userId: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/getpaylist/${userId}`);
+    console.log("Payment service");
+    
+    return this.http.get(`${this.apiUrl}/getpaylist/${userId}`, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   }
+
+
 }
-
-
-
 

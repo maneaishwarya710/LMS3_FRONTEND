@@ -9,6 +9,8 @@ import { CourseContentComponent } from './course-content/course-content.componen
 import { CreateQuizComponent } from './create-quiz/create-quiz.component';
 import { CreateResultComponent } from './create-result/create-result.component';
 import { RemoveCourseComponent } from './remove-course/remove-course.component';
+import { GetMyCreatedCoursesComponent } from './get-my-created-courses/get-my-created-courses.component';
+import { GetContentByCourseIdComponent } from './get-content-by-course-id/get-content-by-course-id.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { RemoveCourseComponent } from './remove-course/remove-course.component';
     CourseContentComponent,
     CreateQuizComponent,
     CreateResultComponent,
-    RemoveCourseComponent
+    RemoveCourseComponent,
+    GetMyCreatedCoursesComponent,
+    GetContentByCourseIdComponent
   ],
   imports: [
     CommonModule,
