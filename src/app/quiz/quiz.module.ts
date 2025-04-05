@@ -4,11 +4,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { QuizRoutingModule } from './quiz-routing.module';
 import { NewQuizComponent } from './new-quiz/new-quiz.component';
+import { GetQuizByCourseIdComponent } from './get-quiz-by-course-id/get-quiz-by-course-id.component';
 
 
 @NgModule({
   declarations: [
-    NewQuizComponent
+    NewQuizComponent,
+    GetQuizByCourseIdComponent
   ],
   imports: [
     CommonModule,

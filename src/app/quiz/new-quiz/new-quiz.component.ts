@@ -25,9 +25,14 @@ export class NewQuizComponent {
   }
 
   //this is added to remove error
-  get optionsControls(){
-    return (this.questions.get('options') as FormArray).controls;
-  }
+  //removed for options(i)
+  // get optionsControls(){
+  //   return (this.questions.get('options') as FormArray).controls;
+  // }
+
+options(questionIndex:number):FormArray{
+  return this.questions.at(questionIndex).get('options') as FormArray;
+}
 
   get questions(): FormArray {
     return this.quizForm.get('questions') as FormArray;
