@@ -5,9 +5,10 @@ import { EnrollComponent } from './enroll/enroll.component';
 import { EnrolledCoursesComponent } from './enrolled-courses/enrolled-courses.component';
 import { GetResultComponent } from './get-result/get-result.component';
 import { GetPaymentComponent } from './get-payment/get-payment.component';
+import { StudentGuard } from '../guards/student.guard';
 
 const routes: Routes = [
-  {path:'students-dashboard', component:StudentsDashboardComponent},
+  {path:'students-dashboard', component:StudentsDashboardComponent, canActivate:[StudentGuard]},
   {path:'enroll', component:EnrollComponent},
   {path:'enrolled-courses', component:EnrolledCoursesComponent},
   {path:'get-result', component:GetResultComponent},

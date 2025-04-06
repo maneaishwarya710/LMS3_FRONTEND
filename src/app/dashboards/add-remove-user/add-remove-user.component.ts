@@ -3,19 +3,20 @@ import { AdminService } from '../../services/admin.service';
 
 @Component({
   selector: 'app-add-remove-user',
-  standalone: false,
   templateUrl: './add-remove-user.component.html',
-  styleUrl: './add-remove-user.component.css'
+  styleUrls: ['./add-remove-user.component.css'],
+  standalone:false
 })
 export class AddRemoveUserComponent {
-  userId: number=0;
+  username: string = '';
 
   constructor(private adminService: AdminService) {}
 
   deleteUser(): void {
-    this.adminService.deleteUserById(this.userId).subscribe(() => {
+    this.adminService.deleteUserByUsername(this.username).subscribe(() => {
       alert('User deleted successfully!');
+    }, error => {
+      console.error('Error deleting user', error);
     });
   }
-
 }

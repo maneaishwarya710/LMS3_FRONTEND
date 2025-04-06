@@ -8,7 +8,8 @@ const routes: Routes = [
   {path:'homepage', component:HomepageComponent},
   {path:'quiz', loadChildren:()=>import('./quiz/quiz.module').then(m=>m.QuizModule)},
   {path:'tutor-dashboard', loadChildren:()=>import('./tutor-dashboard/tutor-dashboard.module').then(m=>m.TutorDashboardModule)},
-  {path:'student-dashboard', loadChildren:()=>import('./student-dashboard/student-dashboard.module').then(m=>m.StudentDashboardModule)}
+  {path:'student-dashboard', loadChildren:()=>import('./student-dashboard/student-dashboard.module').then(m=>m.StudentDashboardModule)},
+  {path:'courses', loadChildren:()=>import('./courses/courses.module').then(m=>m.CoursesModule)}
 ];
 
 @NgModule({

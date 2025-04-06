@@ -4,6 +4,7 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+import { CoursesModule } from './courses/courses.module';
 import { UserModule } from './user/user.module';
 import { AppComponent } from './app.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
@@ -23,6 +24,7 @@ import { QuizModule } from './quiz/quiz.module';
     HomepageComponent,
   ],
   imports: [
+    CoursesModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

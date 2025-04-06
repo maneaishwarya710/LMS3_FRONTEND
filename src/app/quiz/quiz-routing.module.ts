@@ -4,8 +4,8 @@ import { NewQuizComponent } from './new-quiz/new-quiz.component';
 import { GetQuizByCourseIdComponent } from './get-quiz-by-course-id/get-quiz-by-course-id.component';
 
 const routes: Routes = [
-  {path:'new-quiz', component:NewQuizComponent},
-  {path:'get-quiz-by-course-id', component:GetQuizByCourseIdComponent},
+  {path:'new-quiz/:courseId', component:NewQuizComponent},
+  {path:'get-quiz-by-course-id/:courseId', component:GetQuizByCourseIdComponent},
 ];
 
 @NgModule({

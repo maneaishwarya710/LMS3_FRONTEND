@@ -1,7 +1,4 @@
 <h3>Enrollments</h3>
-<div>
-  <button (click)="getEnrolledCourses()">My Courses</button>
-</div>
 <div *ngIf="enrolledCourses.length > 0">
   <h4>Enrolled Courses:</h4>
   <div *ngFor="let course of enrolledCourses" class="course-block">
@@ -10,4 +7,6 @@
     <div class="course-price">{{ course.price }}</div>
   </div>
 </div>
-
+<ng-template #noCourses>
+  <p>No enrolled courses available.</p>
+</ng-template>

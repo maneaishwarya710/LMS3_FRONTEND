@@ -12,10 +12,10 @@
     <label for="totalmarks">Total Marks:</label>
     <input id="totalmarks" formControlName="totalmarks" type="number" />
   </div>
-  <div>
+  <!-- <div>
     <label for="courseId">Course ID:</label>
     <input id="courseId" formControlName="courseId" type="number" />
-  </div>
+  </div> -->
 
   <div formArrayName="questions">
     <div *ngFor="let question of questions.controls; let i = index" [formGroupName]="i">

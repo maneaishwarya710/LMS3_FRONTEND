@@ -1,14 +1,12 @@
-<h3>Get Student Results</h3>
-<div>
-  <!-- <label for="userId">User ID:</label>
-  <input id="userId" [(ngModel)]="userId" type="number" /> -->
-  <button (click)="getStudentResults()">Get Student Results</button>
-</div>
+
 <div *ngIf="studentResults.length > 0">
   <h4>Student Results:</h4>
   <ul>
     <li *ngFor="let result of studentResults">
-      {{ result.courseId }} - {{ result.quizId }} - {{ result.score }}
+      {{ result.courseId }} - {{ result.quizId }} - {{ result.score }} 
     </li>
   </ul>
 </div>
+<ng-template #noResults>
+  <p>No results available.</p>
+</ng-template>

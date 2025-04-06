@@ -1,21 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../../services/student.service';
 import { LoginService } from '../../user/login.service';
 
 @Component({
   selector: 'app-enrolled-courses',
-  standalone: false,
   templateUrl: './enrolled-courses.component.html',
-  styleUrl: './enrolled-courses.component.css'
+  styleUrls: ['./enrolled-courses.component.css'],
+  standalone:false
 })
-export class EnrolledCoursesComponent {
+export class EnrolledCoursesComponent implements OnInit {
   userId!: number;
-  user!:any;
+  user!: any;
   enrolledCourses: any[] = [];
 
-  constructor(private studentService: StudentService, private loginService:LoginService) {
-    this.user=loginService.getUser();
-    this.userId=this.user.userId;
+  constructor(private studentService: StudentService, private loginService: LoginService) {
+    this.user = loginService.getUser();
+    this.userId = this.user.userId;
+  }
+
+  ngOnInit(): void {
+    this.getEnrolledCourses();
   }
 
   getEnrolledCourses(): void {
@@ -30,5 +34,3 @@ export class EnrolledCoursesComponent {
     );
   }
 }
-
-

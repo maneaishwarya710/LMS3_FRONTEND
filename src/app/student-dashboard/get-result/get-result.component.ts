@@ -1,22 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../../services/student.service';
 import { LoginService } from '../../user/login.service';
 
 @Component({
   selector: 'app-get-result',
-  standalone: false,
   templateUrl: './get-result.component.html',
-  styleUrl: './get-result.component.css'
+  styleUrls: ['./get-result.component.css'],
+  standalone:false
 })
-export class GetResultComponent {
+export class GetResultComponent implements OnInit {
   userId!: number;
-  user!:any;
+  user!: any;
   studentResults: any[] = [];
 
-  constructor(private studentService: StudentService, private loginService:LoginService) {
-    this.user=this.loginService.getUser();
-    this.userId=this.user.userId;
+  constructor(private studentService: StudentService, private loginService: LoginService) {
+    this.user = this.loginService.getUser();
+    this.userId = this.user.userId;
     console.log(`Result History for ${this.userId}`);
+  }
+
+  ngOnInit(): void {
+    this.getStudentResults();
   }
 
   getStudentResults(): void {
@@ -31,8 +35,4 @@ export class GetResultComponent {
       }
     );
   }
-
-
 }
-
-

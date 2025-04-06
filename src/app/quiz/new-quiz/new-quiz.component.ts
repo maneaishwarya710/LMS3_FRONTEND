@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { QuizService } from '../../services/quiz.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-quiz',
@@ -11,28 +12,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class NewQuizComponent {
   quizForm!: FormGroup;
+  courseId!: number;
 
-  constructor(private fb: FormBuilder, private quizService: QuizService) {}
+  constructor(private fb: FormBuilder, private quizService: QuizService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+    this.courseId = +this.route.snapshot.paramMap.get('courseId')!;
     this.quizForm = this.fb.group({
       quizName: ['', [Validators.required]],
       description: ['', [Validators.required]],
       totalmarks: ['', [Validators.required]],
-      courseId: ['', [Validators.required]],
+      courseId: [this.courseId],
       questions: this.fb.array([])
     });
   }
 
-  //this is added to remove error
-  //removed for options(i)
-  // get optionsControls(){
-  //   return (this.questions.get('options') as FormArray).controls;
-  // }
-
-options(questionIndex:number):FormArray{
-  return this.questions.at(questionIndex).get('options') as FormArray;
-}
+  options(questionIndex: number): FormArray {
+    return this.questions.at(questionIndex).get('options') as FormArray;
+  }
 
   get questions(): FormArray {
     return this.quizForm.get('questions') as FormArray;
@@ -65,6 +62,7 @@ options(questionIndex:number):FormArray{
     );
 
     this.quizForm.reset();
+    // this.router.navigate(['/tutor-dashboard/get-my-created-courses']);
   }
 }
 

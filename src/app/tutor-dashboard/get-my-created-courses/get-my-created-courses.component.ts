@@ -39,6 +39,10 @@ export class GetMyCreatedCoursesComponent {
     this.router.navigate(['/tutor-dashboard/create-quiz', courseId]);
   }
 
+  navigateToCreateNewQuiz(courseId:number): void {
+    this.router.navigate(['/quiz/new-quiz', courseId]);
+  }
+
   removeCourse(courseId:number): void {
     // const courseId = this.removeCourseForm.value.courseId;
     this.tutorService.removeCourseById(courseId).subscribe(

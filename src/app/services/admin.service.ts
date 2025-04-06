@@ -14,9 +14,10 @@ export class AdminService {
     return this.http.get(`${this.apiUrl}/view`);
   }
 
-  deleteUserById(userId: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/delete/${userId}`);
+  deleteUserByUsername(username: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/delete/${username}`);
   }
+  
   
   addUser(data: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/add`, data, {
