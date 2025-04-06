@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { HomepageComponent } from './homepage/homepage.component';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from './user/login.service';
+import { QuizModule } from './quiz/quiz.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { LoginService } from './user/login.service';
     FormsModule,
     ReactiveFormsModule,
     UserModule,
+    QuizModule,
     MatSnackBarModule,
     SharedModule,
   ],

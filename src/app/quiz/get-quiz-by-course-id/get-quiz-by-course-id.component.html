@@ -1,1 +1,27 @@
-<p>get-quiz-by-course-id works!</p>
+<div class="container p-4">
+    <h2 class="text-xl font-bold mb-4">Take Quiz</h2>
+    <label for="courseId" class="block mb-2 font-medium">Enter Course ID:</label>
+    <input [(ngModel)]="courseId" type="number" class="border p-2 mb-4 w-full" placeholder="e.g. 1" />
+    <button (click)="fetchQuiz()" class="bg-blue-600 text-white px-4 py-2 rounded">Get
+        Quiz</button>
+    <div *ngIf="quiz">
+        <h3 class="text-lg font-semibold mt-4">{{ quiz.quizName }}</h3>
+        <p>{{ quiz.description }}</p>
+        <form *ngFor="let q of quiz.questions">
+            <div class="mt-4">
+                <p class="font-medium">{{ q.questionText }}</p>
+                <div *ngFor="let opt of q.options">
+                    <input type="radio" [name]="'question_' + q.questionId" [value]="opt.optionId"
+                        (change)="selectOption(q.questionId, opt.optionId)" [disabled]="submitted" />
+                    <label>{{ opt.optionText }}</label>
+                </div>
+            </div>
+        </form>
+        <button *ngIf="!submitted" (click)="submitQuiz()" class="mt-4 bg-green-600 text-white
+    px-4 py-2 rounded">Submit Quiz</button>
+        <div *ngIf="submitted" class="mt-4 text-green-700">
+            <p>✅ Quiz submitted!</p>
+            <p>Your score: {{ score }}/{{ quiz.questions.length }}</p>
+        </div>
+    </div>
+</div>

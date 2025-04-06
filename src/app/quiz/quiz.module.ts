@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { QuizRoutingModule } from './quiz-routing.module';
 import { NewQuizComponent } from './new-quiz/new-quiz.component';
@@ -15,7 +16,8 @@ import { GetQuizByCourseIdComponent } from './get-quiz-by-course-id/get-quiz-by-
   imports: [
     CommonModule,
     QuizRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class QuizModule { }
