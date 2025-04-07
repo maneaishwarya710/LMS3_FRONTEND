@@ -1,6 +1,6 @@
-<h3>Enrollment List</h3>
-<ul>
-  <li *ngFor="let enrollment of enrollments">
-    {{ enrollment.enrollmentId }} - {{ enrollment.enrollmentDate }} - {{ enrollment.completionStatus }} - {{ enrollment.courseId }} - {{ enrollment.userId }}
-  </li>
-</ul>
+<app-generic-list
+  [title]="'Enrollment List'"
+  [data]="enrollments"
+  [fields]="['enrollmentId', 'enrollmentDate', 'completionStatus', 'courseId', 'userId']"
+  [headers]="['Enrollment ID', 'Enrollment Date', 'Completion Status', 'Course ID', 'User ID']"
+></app-generic-list>

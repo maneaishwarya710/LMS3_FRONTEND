@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CoursesRoutingModule } from './courses-routing.module';
 import { GetAllCoursesComponent } from './get-all-courses/get-all-courses.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { GetAllCoursesComponent } from './get-all-courses/get-all-courses.compon
   ],
   imports: [
     CommonModule,
-    CoursesRoutingModule
+    CoursesRoutingModule,
+    FormsModule
   ],
   exports:[
     GetAllCoursesComponent

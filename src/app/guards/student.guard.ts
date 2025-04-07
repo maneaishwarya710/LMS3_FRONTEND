@@ -15,8 +15,8 @@ export class StudentGuard implements CanActivate {
     if (user && roles.includes(user.userType)) {
       return true;
     } else {
-      alert("You need to be logged in to view the student dashboard. Please log in or sign up to continue!")
-      this.router.navigate(['/homepage']);
+      alert("Please log in or sign up to continue!")
+      this.router.navigate(['/user/login']);
       return false;
     }
   }

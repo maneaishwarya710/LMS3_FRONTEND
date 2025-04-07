@@ -10,7 +10,7 @@ export class CourseService {
   constructor(private http: HttpClient) { }
 
   getAllCourses(): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/getAllCourses}`);
+    return this.http.get<any[]>(`${this.apiUrl}/getAllCourses`);
   }
 
 }

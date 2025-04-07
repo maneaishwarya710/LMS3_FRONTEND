@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../../services/student.service';
 import { LoginService } from '../../user/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-enrolled-courses',
@@ -13,7 +14,7 @@ export class EnrolledCoursesComponent implements OnInit {
   user!: any;
   enrolledCourses: any[] = [];
 
-  constructor(private studentService: StudentService, private loginService: LoginService) {
+  constructor(private studentService: StudentService, private router:Router, private loginService: LoginService) {
     this.user = loginService.getUser();
     this.userId = this.user.userId;
   }
@@ -32,5 +33,13 @@ export class EnrolledCoursesComponent implements OnInit {
         console.error('Error fetching enrolled courses', error);
       }
     );
+  }
+
+  navigateToCourseContent(courseId: number): void {
+    this.router.navigate(['/tutor-dashboard/get-content-by-course-id', courseId]);
+  }
+
+  navigateToQuiz(courseId: number): void {
+    this.router.navigate(['/quiz/get-quiz-by-course-id', courseId]);
   }
 }

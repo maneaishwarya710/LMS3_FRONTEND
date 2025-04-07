@@ -17,6 +17,7 @@ const routes: Routes = [
   {path:'remove-course', component:RemoveCourseComponent},
   {path:'get-my-created-courses', component:GetMyCreatedCoursesComponent},
   {path:'new-quiz/:courseId', component:GetContentByCourseIdComponent},
+  {path:'get-content-by-course-id/:courseId', component:GetContentByCourseIdComponent}
 ];
 
 @NgModule({

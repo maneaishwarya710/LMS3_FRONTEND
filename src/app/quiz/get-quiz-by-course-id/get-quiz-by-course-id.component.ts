@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { QuizService } from '../../services/quiz.service';
 import { ActivatedRoute } from '@angular/router';
+import { LoginService } from '../../user/login.service';
 
 @Component({
   selector: 'app-get-quiz-by-course-id',
@@ -10,16 +11,19 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class GetQuizByCourseIdComponent {
   courseId!: number ;
-  userId: number = 14; // Replace with actual user ID logic
+  userId!: number;
+  user!:any; 
   quiz: any;
   answers: any[] = [];
   submitted = false;
   score: number | null = null;
 
-  constructor(private quizService: QuizService, private route: ActivatedRoute,) { }
+  constructor(private quizService: QuizService, private route: ActivatedRoute, private loginService:LoginService) { }
 
   ngOnInit(): void {
     this.courseId = +this.route.snapshot.paramMap.get('courseId')!;
+    this.user=this.loginService.getUser();
+    this.userId=this.user.userId;
   }
 
   fetchQuiz() {

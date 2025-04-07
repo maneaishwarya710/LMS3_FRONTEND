@@ -10,6 +10,8 @@ import { AddRemoveUserComponent } from './add-remove-user/add-remove-user.compon
 import { AdAddUserComponent } from './ad-add-user/ad-add-user.component';
 import { AdPaymentListComponent } from './ad-payment-list/ad-payment-list.component';
 import { AdEnrollsListComponent } from './ad-enrolls-list/ad-enrolls-list.component';
+import { SharedModule } from "../shared/shared.module";
+import { GenericListComponent } from "../shared/generic-list/generic-list.component";
 
 
 @NgModule({
@@ -25,8 +27,9 @@ import { AdEnrollsListComponent } from './ad-enrolls-list/ad-enrolls-list.compon
     CommonModule,
     DashboardsRoutingModule,
     FormsModule,
-    ReactiveFormsModule
-  ],
+    ReactiveFormsModule,
+    SharedModule,
+],
   exports:[
     AdminDashboardComponent,
     AdViewAllUsersComponent,

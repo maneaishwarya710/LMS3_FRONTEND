@@ -1,12 +1,17 @@
+<!-- filepath: c:\JNC_LMS_PROJECT\LMS_FRONTEND\src\app\student-dashboard\enrolled-courses\enrolled-courses.component.html -->
 <h3>Enrollments</h3>
 <div *ngIf="enrolledCourses.length > 0">
   <h4>Enrolled Courses:</h4>
   <div *ngFor="let course of enrolledCourses" class="course-block">
+    <div class="course-id">{{course.courseId}}</div>
     <div class="course-name">{{ course.courseName }}</div>
     <div class="course-description">{{ course.description }}</div>
     <div class="course-price">{{ course.price }}</div>
+    <button (click)="navigateToCourseContent(course.courseId)">Start Learning</button>
+    <button (click)="navigateToQuiz(course.courseId)">Take a Quiz</button>
   </div>
 </div>
 <ng-template #noCourses>
   <p>No enrolled courses available.</p>
 </ng-template>
+

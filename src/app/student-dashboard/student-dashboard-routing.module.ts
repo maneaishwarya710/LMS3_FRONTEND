@@ -9,7 +9,7 @@ import { StudentGuard } from '../guards/student.guard';
 
 const routes: Routes = [
   {path:'students-dashboard', component:StudentsDashboardComponent, canActivate:[StudentGuard]},
-  {path:'enroll', component:EnrollComponent},
+  {path:'enroll/:courseId', component:EnrollComponent, canActivate:[StudentGuard]},
   {path:'enrolled-courses', component:EnrolledCoursesComponent},
   {path:'get-result', component:GetResultComponent},
   {path:'get-payment', component:GetPaymentComponent},

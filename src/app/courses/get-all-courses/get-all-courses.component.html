@@ -1,9 +1,21 @@
-<h3>Courses</h3>
-<div *ngIf="courses.length > 0; else noCourses">
-  <div *ngFor="let course of courses" class="course-block">
+
+<br>
+<div>
+  <input
+  type="text"
+  placeholder="Search courses..."
+  (input)="onSearch($event)"
+  class="search-input"
+/>
+</div>
+<br>
+<div class="course-container" *ngIf="filteredCourses.length > 0; else noCourses">
+  <div *ngFor="let course of filteredCourses" class="course-block">
+    <img [src]="course.imgurl" alt="{{ course.courseName }}" class="course-image" />
     <h4>{{ course.courseName }}</h4>
     <p>{{ course.description }}</p>
     <p>Price: {{ course.price }}</p>
+    <button (click)="navigateToEnroll(course.courseId)">Enroll</button>
   </div>
 </div>
 <ng-template #noCourses>
