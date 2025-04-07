@@ -24,11 +24,17 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.regService.getRegisterMessage(this.registerForm.value).subscribe((data) => {
-      console.log(data);
-      alert("User Registration Successful!");
-      this.registerForm.reset();
-      this.router.navigate(['/user/login']);
-    });
+    this.regService.getRegisterMessage(this.registerForm.value).subscribe(
+      (data) => {
+        console.log(data);
+        alert('User Registration Successful!');
+        this.registerForm.reset();
+        this.router.navigate(['/user/login']);
+      },
+      (error) => {
+        console.error('Registration failed:', error);
+        alert('Registration failed. Please try again.');
+      }
+    );
   }
 }

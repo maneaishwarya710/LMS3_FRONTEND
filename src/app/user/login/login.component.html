@@ -1,17 +1,24 @@
-<h3>Login</h3>
 <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="username">Username:</label>
-      <input id="username" formControlName="username" type="text" />
+  <div>
+    <label for="username">Username:</label>
+    <input id="username" formControlName="username" type="text" />
+    <div *ngIf="LoginForm.get('username')?.touched && LoginForm.get('username')?.invalid" class="error">
+      <small *ngIf="LoginForm.get('username')?.errors?.['required']">Username is required.</small>
+      <small *ngIf="LoginForm.get('username')?.errors?.['minlength']">Username must be at least 3 characters long.</small>
     </div>
-  
-    <div>
-      <label for="password">Password:</label>
-      <input id="password" formControlName="password" type="password" />
+  </div>
+
+  <div>
+    <label for="password">Password:</label>
+    <input id="password" formControlName="password" type="password" />
+    <div *ngIf="LoginForm.get('password')?.touched && LoginForm.get('password')?.invalid" class="error">
+      <small *ngIf="LoginForm.get('password')?.errors?.['required']">Password is required.</small>
+      <small *ngIf="LoginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</small>
     </div>
-  
-    <button type="submit" [disabled]="LoginForm.invalid">Login</button>
-  </form>
+  </div>
+
+  <button type="submit" [disabled]="LoginForm.invalid">Login</button>
+</form>
 
   <p>Don't have account? Register here</p>
   <a href="user/register">Register</a>

@@ -35,4 +35,11 @@ export class AdminService {
     return this.http.get(`${this.apiUrl}/enrolls`);
   }
   
+  getStudentsWithEnrollments(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/students-enrollments`);
+}
+
+  getTeachersWithCourses(): Observable<any> {
+    return this.http.get(`${this.apiUrl}/teachers-courses`);
+  }
 }

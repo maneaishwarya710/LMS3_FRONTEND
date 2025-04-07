@@ -23,6 +23,7 @@ export class HeaderComponent {
 
   logout(): void {
     this.loginService.logout();
+    alert('You have been logged out.');
     this.router.navigate(['/user/login']);
   }
 

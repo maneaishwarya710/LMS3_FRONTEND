@@ -37,11 +37,11 @@ export class EnrollComponent {
         console.log('Enrollment successful', res);
         alert('Enrollment successful!');
         this.enrollForm.reset();
-        this.router.navigate(['/student-dashboard/enrolled-courses'])
+        this.router.navigate(['/student-dashboard/enrolled-courses']);
       },
       (error: any) => {
-        console.error('Error enrolling', error);
-        alert('Unable to enroll!');
+        console.error('Error enrolling:', error);
+        alert('Unable to enroll. Please try again later.');
       }
     );
   }

@@ -70,3 +70,9 @@ a {
 a:hover {
   color: #FF4136; /* Red */
 }
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}

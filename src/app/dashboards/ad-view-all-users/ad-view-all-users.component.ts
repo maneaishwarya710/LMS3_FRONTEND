@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../../services/admin.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-ad-view-all-users',
@@ -10,14 +9,28 @@ import { CommonModule } from '@angular/common';
 })
 export class AdViewAllUsersComponent implements OnInit {
   users: any[] = [];
+  students: any[] = [];
+  teachers: any[] = [];
+  selectedView: string = 'users'; // Default view
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService) { }
 
   ngOnInit(): void {
     this.adminService.viewAllUsers().subscribe((data) => {
       this.users = data.users;
-      console.log(this.users);
     });
+
+    this.adminService.getStudentsWithEnrollments().subscribe((data) => {
+      this.students = data.students;
+    });
+
+    this.adminService.getTeachersWithCourses().subscribe((data) => {
+      this.teachers = data.teachers;
+    });
+  }
+
+  setView(view: string): void {
+    this.selectedView = view;
   }
 
   deleteUser(username: string): void {

@@ -27,16 +27,21 @@ export class LoginComponent {
   userInfo: any;
 
   onSubmit(): void {
-    this.loginService.getLoginMessage(this.LoginForm.value).subscribe((res: any) => {
-      console.log(res);
-      this.loginService.setToken(res.token);
-      this.loginService.setUser(res.user);
-      console.log("User got after login (Cookies)", res.user);
-      console.log("Login Successful...");
-      alert("Login Successful!");
-      this.LoginForm.reset();
-      this.router.navigate(['/homepage']);
-    });
+    this.loginService.getLoginMessage(this.LoginForm.value).subscribe(
+      (res: any) => {
+        console.log(res);
+        this.loginService.setToken(res.token);
+        this.loginService.setUser(res.user);
+        localStorage.setItem('userType', res.user.userType);
+        alert('Login Successful!');
+        this.LoginForm.reset();
+        this.router.navigate(['/homepage']);
+      },
+      (error) => {
+        console.error('Login failed:', error);
+        alert('Invalid username or password. Please try again.');
+      }
+    );
   }
 
 }

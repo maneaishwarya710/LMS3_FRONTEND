@@ -1,15 +1,23 @@
-<h3>Enroll</h3>
 <form [formGroup]="enrollForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="enrollmentDate">Enrollment Date:</label>
     <input id="enrollmentDate" formControlName="enrollmentDate" type="date" />
+    <div *ngIf="enrollForm.get('enrollmentDate')?.touched && enrollForm.get('enrollmentDate')?.invalid" class="error">
+      <small *ngIf="enrollForm.get('enrollmentDate')?.errors?.['required']">Enrollment Date is required.</small>
+    </div>
   </div>
+
   <div>
     <label for="completionStatus">Completion Status:</label>
     <select id="completionStatus" formControlName="completionStatus">
-      <option value="" disabled selected>Select Status</option>
       <option value="Starting">Starting</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Completed">Completed</option>
     </select>
+    <div *ngIf="enrollForm.get('completionStatus')?.touched && enrollForm.get('completionStatus')?.invalid" class="error">
+      <small *ngIf="enrollForm.get('completionStatus')?.errors?.['required']">Completion Status is required.</small>
+    </div>
   </div>
+
   <button type="submit" [disabled]="enrollForm.invalid">Enroll</button>
 </form>

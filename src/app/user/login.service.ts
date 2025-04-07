@@ -37,6 +37,7 @@ export class LoginService {
   clearAuthData(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('userType');
     this.userTypeSubject.next(null); 
     this.userSubject.next(null); 
   }

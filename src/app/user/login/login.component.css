@@ -70,3 +70,15 @@ h3 {
     color: #FF4136; /* Red */
   }
   
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .error-snackbar {
+    background-color: #f44336; /* Red */
+    color: white;
+  }
+  
+ 

@@ -1,7 +1,51 @@
-<h3>All Users</h3>
-<ul>
-  <li *ngFor="let user of users">
-    {{ user.username }} - {{ user.email }} - {{ user.userType }}
-    <button (click)="deleteUser(user.username)">Delete</button>
-  </li>
-</ul>
+<div class="container">
+  <h2>Admin Dashboard</h2>
+  <div class="options">
+    <button 
+      class="btn" 
+      [class.active]="selectedView === 'users'" 
+      (click)="setView('users')">
+      View All Users
+    </button>
+    <button 
+      class="btn" 
+      [class.active]="selectedView === 'students'" 
+      (click)="setView('students')">
+      View Students with Enrollments
+    </button>
+    <button 
+      class="btn" 
+      [class.active]="selectedView === 'teachers'" 
+      (click)="setView('teachers')">
+      View Teachers with Courses
+    </button>
+  </div>
+
+  <div *ngIf="selectedView === 'users'" class="list">
+    <h3>All Users</h3>
+    <ul>
+      <li *ngFor="let user of users">
+        {{ user.username }} - {{ user.email }} - {{ user.userType }}
+        <button class="delete-btn" (click)="deleteUser(user.username)">Delete</button>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="selectedView === 'students'" class="list">
+    <h3>Students with Enrollments</h3>
+    <ul>
+      <li *ngFor="let student of students">
+        {{ student.username }} - {{ student.email }} - Enrollments: {{ student.enrollmentCount }}
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="selectedView === 'teachers'" class="list">
+    <h3>Teachers with Courses</h3>
+    <ul>
+      <li *ngFor="let teacher of teachers">
+        {{ teacher.username }} - {{ teacher.email }} - Courses: {{ teacher.courseCount }}
+      </li>
+    </ul>
+  </div>
+</div>
