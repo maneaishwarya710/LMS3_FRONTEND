@@ -6,9 +6,11 @@
     </div>
     <nav class="nav">
       <a href="/user/login" class="nav-link" *ngIf="!user">Login</a>
-      <a href="/dashboards/admin-dashboard" class="nav-link" *ngIf="user?.userType === 'admin'">Admin Dashboard</a>
-      <a href="/tutor-dashboard/tutors-dashboard" class="nav-link" *ngIf="user?.userType === 'tutor'">Tutor Dashboard</a>
-      <a href="/student-dashboard/students-dashboard" class="nav-link" *ngIf="user?.userType === 'student'">Student Dashboard</a>
+      <a href="/dashboards/admin-dashboard" class="nav-link" *ngIf="user?.userType === 'admin'">Dashboard</a>
+      <a href="/tutor-dashboard/tutors-dashboard" class="nav-link" *ngIf="user?.userType === 'tutor'">Dashboard</a>
+      <a href="/student-dashboard/students-dashboard" class="nav-link"
+        *ngIf="user?.userType === 'student'">Dashboard</a>
+
       <span *ngIf="user" class="nav-link">
         <i class="fas fa-user"></i> Hey, {{ user.username }}
         <button (click)="logout()" class="logout-button">Logout</button>

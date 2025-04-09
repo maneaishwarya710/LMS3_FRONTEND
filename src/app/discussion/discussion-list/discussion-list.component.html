@@ -1,0 +1,18 @@
+<div class="container">
+    <h2>Discussion Forum</h2>
+    <form (submit)="submitQuestion(); $event.preventDefault()">
+        <input [(ngModel)]="newQuestion.title" name="title" placeholder="Question 
+   Title" class="border p-2 w-full mb-2" />
+        <textarea [(ngModel)]="newQuestion.content" name="content" placeholder="Your question..."
+            class="border p-2 w-full mb-2"></textarea>
+        <button class="bg-blue-500 text-white px-4 py-2">Post Question</button>
+    </form>
+    <hr class="my-4" />
+    <div *ngFor="let q of discussions" class="border p-4 mb-2">
+        <h3 class="font-semibold">{{ q.title }}</h3>
+        <p>{{ q.content }}</p>
+        <p>{{ q.id }}</p>
+        <button (click)="viewDiscussion(q.id)" class="text-blue-600 
+   underline">View / Answer</button>
+    </div>
+</div>

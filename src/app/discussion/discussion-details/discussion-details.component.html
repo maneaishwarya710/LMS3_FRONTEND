@@ -1,0 +1,13 @@
+<div class="container" *ngIf="discussion">
+    <h2>{{ discussion.title }}</h2>
+    <p>{{ discussion.content }}</p>
+    <h3 class="mt-4">Answers</h3>
+    <div *ngFor="let ans of discussion.answers" class="p-2 border mb-2">
+        {{ ans.content }}
+    </div>
+    <form (submit)="postAnswer(); $event.preventDefault()" class="mt-4">
+        <textarea [(ngModel)]="newAnswer.content" name="answer" class="border p-2 
+   w-full mb-2" placeholder="Write your answer..."></textarea>
+        <button class="bg-green-600 text-white px-4 py-2">Submit Answer</button>
+    </form>
+</div>

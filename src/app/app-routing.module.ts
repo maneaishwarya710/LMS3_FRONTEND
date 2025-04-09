@@ -4,6 +4,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
   {path:'user', loadChildren:()=>import('./user/user.module').then(m=>m.UserModule)},
+  {path:'discussion', loadChildren:()=>import('./discussion/discussion.module').then(m=>m.DiscussionModule)},
   {path:'dashboards', loadChildren:()=>import('./dashboards/dashboards.module').then(m=>m.DashboardsModule)},
   {path:'homepage', component:HomepageComponent},
   {path:'quiz', loadChildren:()=>import('./quiz/quiz.module').then(m=>m.QuizModule)},

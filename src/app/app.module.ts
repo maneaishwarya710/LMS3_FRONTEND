@@ -16,6 +16,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginService } from './user/login.service';
 import { QuizModule } from './quiz/quiz.module';
+import { DiscussionModule } from './discussion/discussion.module';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { QuizModule } from './quiz/quiz.module';
     QuizModule,
     MatSnackBarModule,
     SharedModule,
+    DiscussionModule
   ],
   providers: [
     {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true,},
